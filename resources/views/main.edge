@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="subtitle" style="color: #BDB3CB"><p>Wordweek</p></div>
-  <section>
+  <div class="word-input">
     <form method="POST" action="/words">
       {{ csrfField() }}
       <input type='text' name='word' />
@@ -21,7 +21,7 @@
           {{ old('notification') }}
       </div>
     @endif
-  </section>
+  </div>
   <section>
     <div id='wordslist' style="color: #BDB3CB">
       @each(word in words)
