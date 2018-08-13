@@ -7,18 +7,20 @@
 </head>
 <body>
   <div class="subtitle" style="color: #BDB3CB"><p>Wordweek</p></div>
-  <form method="POST" action="/words">
-    {{ csrfField() }}
-    <input type='text' name='word' />
-    <button type='submit'>
-      Add word
-    </button>
-  </form>
-  @if(old('notification'))
-    <div class="notification is-success" style="color: #BDB3CB">
-        {{ old('notification') }}
-    </div>
-  @endif
+  <section>
+    <form method="POST" action="/words">
+      {{ csrfField() }}
+      <input type='text' name='word' />
+      <button type='submit'>
+        Add word
+      </button>
+    </form>
+    @if(old('notification'))
+      <div class="notification is-success" style="color: #BDB3CB">
+          {{ old('notification') }}
+      </div>
+    @endif
+  </section>
   <section>
     <div id='wordslist' style="color: #BDB3CB">
       @each(word in words)
