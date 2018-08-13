@@ -7,6 +7,7 @@
 </head>
 <body>
   <section>
+    <div class="subtitle" style="color: #BDB3CB"><p>Wordweek</p></div>
     <form method="POST" action="/words">
       {{ csrfField() }}
       <input type='text' name='word' />
@@ -15,35 +16,34 @@
       </button>
     </form>
     @if(old('notification'))
-      <div class="notification is-success">
+      <div class="notification is-success" style="color: #BDB3CB">
           {{ old('notification') }}
       </div>
     @endif
-    <div class="subtitle"><p>AdonisJs simplicity will make you feel confident about your code</p></div>
-    <div id='wordslist'>
-    @each(word in words)
-    <tr>
-      <td>
-        {{ word.word }}
-      </td>
-      <td>
-        <form action="{{ 'words/' + word.id + '?_method=DELETE' }}" method="POST">
-          {{ csrfField() }}
-        
-          <button type="submit" class="button is-danger is-outlined">
-            <span>DELETE</span>
-            <span class="icon is-small">
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </span>
-          </button>
-        </form>
-      </td>
-    </tr>
-  @else
-    <tr>
-      <td colspan="3" class="has-text-centered">No task created yet!</td>
-    </tr>
-  @endeach
+    <div id='wordslist' style="color: #BDB3CB">
+      @each(word in words)
+      <tr>
+        <td>
+          {{ word.word }}
+        </td>
+        <td>
+          <form action="{{ 'words/' + word.id + '?_method=DELETE' }}" method="POST">
+            {{ csrfField() }}
+
+            <button type="submit" class="button is-danger is-outlined">
+              <span>DELETE</span>
+              <span class="icon is-small">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </span>
+            </button>
+          </form>
+        </td>
+      </tr>
+    @else
+      <tr>
+        <td colspan="3" class="has-text-centered" style="color: #BDB3CB">No word added yet!</td>
+      </tr>
+    @endeach
   </div>
   </section>
   {{ script('app') }}
